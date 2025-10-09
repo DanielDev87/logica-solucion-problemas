@@ -1,5 +1,8 @@
 package com.logsoluprobl.appbank.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public abstract class Account {
     private String id;
     private Customer owner;

@@ -29,5 +29,6 @@ public interface BankService {
 
     // Consultas
     List<Transaction> getAccountTransactions(String accountId);
+
 }
 

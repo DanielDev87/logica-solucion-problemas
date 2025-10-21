@@ -3,6 +3,8 @@ package com.logsoluprobl.appbank.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.logsoluprobl.appbank.model.Account;
 import com.logsoluprobl.appbank.model.CheckingAccount;
 import com.logsoluprobl.appbank.model.Customer;
@@ -10,6 +12,7 @@ import com.logsoluprobl.appbank.model.Money;
 import com.logsoluprobl.appbank.model.SavingsAccount;
 import com.logsoluprobl.appbank.model.Transaction;
 
+@Service
 public class BankServiceImpl implements BankService {
 
     private List<Customer> customers;
@@ -57,6 +60,7 @@ public class BankServiceImpl implements BankService {
         accounts.add(account);
         return account;
     }
+
 
     @Override
     public Account findAccountById(String accountId) {
@@ -121,4 +125,5 @@ public class BankServiceImpl implements BankService {
         Account account = findAccountById(accountId);
         return account != null ? account.getTransactions() : new ArrayList<>();
     }
+
 }

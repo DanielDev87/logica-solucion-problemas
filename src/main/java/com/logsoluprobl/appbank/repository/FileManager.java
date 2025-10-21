@@ -10,32 +10,22 @@ import org.springframework.stereotype.Component;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-/**
- * Clase Singleton que gestiona el acceso físico a los archivos JSON.
- */
 @Component
 public class FileManager {
-
-    // Spring inyecta la ruta de la configuración. ¡ESTO ES CORRECTO!
     @Value("${bank.data.path}") 
     private String dataPath;
 
     private final ObjectMapper objectMapper = new ObjectMapper();
 
-    // Constructor sin argumentos: Spring puede crearlo sin problemas
     public FileManager() {
-        // Inicialización simple
+        
     }
 
-    /**
-     * Obtiene el objeto File basándose en el nombre del archivo y el path base.
-     */
     private File getFile(String fileName) {
-        // Usa el dataPath inyectado por Spring para construir la ruta
         return new File(dataPath, fileName); 
     }
     
-    // Métodos específicos para los archivos conocidos
+    // Métodos específicos para los archivos
     public File getCustomersFile() {
         return getFile("customers.json");
     }
@@ -57,7 +47,6 @@ public class FileManager {
             }
             return objectMapper.readValue(file, typeReference);
         } catch (IOException e) {
-            // Recomiendo una mejor excepción
             throw new RuntimeException("Error al leer el archivo JSON: " + file.getName(), e);
         }
     }
@@ -70,7 +59,6 @@ public class FileManager {
     public <T> void write(String fileName, List<T> data) {
         File file = getFile(fileName);
         try {
-            // Asegura que el directorio exista (útil para paths relativos)
             file.getParentFile().mkdirs(); 
             objectMapper.writerWithDefaultPrettyPrinter().writeValue(file, data);
         } catch (IOException e) {

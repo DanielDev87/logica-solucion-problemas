@@ -1,13 +1,18 @@
 package com.logsoluprobl.appbank.service.strategies;
 
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
 import com.logsoluprobl.appbank.service.InterestStrategy;
 
+@Component
 public class SimpleRateStrategy implements InterestStrategy {
 
+    @Value("${bank.interest.rate:0.01}") 
     private double rate;
 
-    public SimpleRateStrategy(double rate) {
-        this.rate = rate;
+    public SimpleRateStrategy() {
+
     }
 
     @Override
@@ -16,6 +21,6 @@ public class SimpleRateStrategy implements InterestStrategy {
     }
 
     public double getRate() { return rate; }
-    public void setRate(double rate) { this.rate = rate; }
+    
 }
 

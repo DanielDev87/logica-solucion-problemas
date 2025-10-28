@@ -182,7 +182,7 @@ Ejemplo de respuesta:
 
 **Daniel Felipe Agudelo Molina**
 Ingeniero de Software – Docente y desarrollador backend & móvil
-📧 [daniel@example.com](mailto:daniel.agudelomo@amigo.edu.co)
+📧 [daniel.agudelomo@amigo.edu.co](mailto:daniel.agudelomo@amigo.edu.co)
 🌐 [LinkedIn](https://www.linkedin.com/in/daniel-felipe-agudelo-molina)
 💻 [GitHub](https://github.com/DanielDev87)
 
